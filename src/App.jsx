@@ -8,6 +8,13 @@ import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 import Book from './pages/Book'
 import NotFound from './pages/NotFound'
+import AdminApp from './admin/AdminApp'
+import Dashboard from './admin/Dashboard'
+import SettingsPage from './admin/SettingsPage'
+import Enquiries from './admin/Enquiries'
+import Activity from './admin/Activity'
+import Profile from './admin/Profile'
+import { RidesAdmin, TicketsAdmin, OffersAdmin, GalleryAdmin, FaqsAdmin } from './admin/managers'
 
 export default function App() {
   return (
@@ -21,6 +28,19 @@ export default function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="book" element={<Book />} />
         <Route path="*" element={<NotFound />} />
+      </Route>
+
+      <Route path="admin" element={<AdminApp />}>
+        <Route index element={<Dashboard />} />
+        <Route path="enquiries" element={<Enquiries />} />
+        <Route path="settings" element={<SettingsPage />} />
+        <Route path="rides" element={<RidesAdmin />} />
+        <Route path="tickets" element={<TicketsAdmin />} />
+        <Route path="offers" element={<OffersAdmin />} />
+        <Route path="gallery" element={<GalleryAdmin />} />
+        <Route path="faqs" element={<FaqsAdmin />} />
+        <Route path="activity" element={<Activity />} />
+        <Route path="profile" element={<Profile />} />
       </Route>
     </Routes>
   )
