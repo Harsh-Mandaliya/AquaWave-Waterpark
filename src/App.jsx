@@ -5,6 +5,8 @@ import Rides from './pages/Rides'
 import Tickets from './pages/Tickets'
 import Offers from './pages/Offers'
 import Gallery from './pages/Gallery'
+import Contact from './pages/Contact'
+import Book from './pages/Book'
 import NotFound from './pages/NotFound'
 
 export default function App() {
@@ -16,6 +18,8 @@ export default function App() {
         <Route path="tickets" element={<Tickets />} />
         <Route path="offers" element={<Offers />} />
         <Route path="gallery" element={<Gallery />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="book" element={<Book />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
