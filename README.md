@@ -3,6 +3,8 @@
 Official website for **Masti Water Park, Danawada (Khodu), Gujarat 363510**.
 Public site for visitors + a private admin panel to change the logo, name, contacts, rides, tickets, offers, photos, videos and to handle booking enquiries.
 
+**Designed & developed by [Harsh Mandaliya](https://github.com/Harsh-Mandaliya)**
+
 | Layer     | Tech                                          |
 |-----------|-----------------------------------------------|
 | Front end | React 18 + Vite + Tailwind CSS 4, Google Fonts (Playfair Display + Manrope) |
@@ -164,3 +166,21 @@ The logo with transparent background is `public/brand/masti-logo.png` (original 
 - **Enquiries** can be searched, filtered by status and exported to CSV (opens in Excel).
 - **Activity log** (Admin → Activity log) records every change: what, by whom, when. Each change and its log entry are saved together in one step, and the history cannot be edited or deleted.
 - Booking form checks, in the browser *and* again in the database: name, Indian mobile number, visit date from today up to one year ahead (no past dates), a ticket from the list, whole-number guests 0–200 with at least one adult, a known visit type, message up to 500 characters.
+
+---
+
+## Author
+
+**Harsh Mandaliya**
+GitHub: [@Harsh-Mandaliya](https://github.com/Harsh-Mandaliya)
+
+Designed, developed and maintained by Harsh Mandaliya — front end, admin panel, database rules and booking flow.
+
+## Credits
+
+- Logo and brand: **Masti Water Park**, Danawada, Gujarat
+- Park photos: [Pexels](https://www.pexels.com/license/) (free licence) — to be replaced with the park's own photos
+- Videos: public YouTube videos of Masti Water Park
+- Built with React, Vite, Tailwind CSS, Firebase and Lucide icons
+
+© 2026 Harsh Mandaliya. All rights reserved.
