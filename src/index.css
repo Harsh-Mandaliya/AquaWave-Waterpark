@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+
+  /* Brand palette, taken from the logo and toned down for a premium feel */
+  --color-navy: #0b2545;
+  --color-navy-soft: #13315c;
+  --color-ink: #1d2733;
+  --color-gold: #d99a1e;
+  --color-gold-soft: #f3e2bd;
+  --color-masti-red: #d7262e;
+  --color-masti-red-dark: #b01d24;
+  --color-ocean: #1a8fd0;
+  --color-ocean-deep: #0e5a96;
+  --color-mist: #f4f7fa;
+  --color-cream: #faf7f1;
+  --color-line: #e3e8ee;
+
+  /* old names still used by the admin panel */
+  --color-ocean-night: #0b2545;
+  --color-foam: #eef4f9;
+  --color-sand: #faf3e3;
+  --color-sun: #d99a1e;
+  --color-sun-deep: #b67d10;
+
+  --animate-rise: rise 0.8s cubic-bezier(.2,.7,.2,1) both;
+  --animate-pan: pan 26s ease-in-out infinite alternate;
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px) }
+    to { opacity: 1; transform: none }
+  }
+  @keyframes pan {
+    from { transform: scale(1.08) translateX(0) }
+    to { transform: scale(1.08) translateX(-2.5%) }
+  }
+}
+
+html { scroll-behavior: smooth; }
+body { @apply bg-white font-sans text-ink antialiased; }
+h1, h2, h3 { @apply font-display tracking-tight; }
+
+@utility container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[14px] font-bold tracking-wide
+         transition duration-200 focus-visible:outline-none focus-visible:ring-4 disabled:opacity-60;
+}
+@utility btn-red { @apply btn bg-masti-red text-white hover:bg-masti-red-dark focus-visible:ring-red-200; }
+@utility btn-sun { @apply btn bg-gold text-navy hover:bg-[#e8ac30] focus-visible:ring-amber-200; }
+@utility btn-navy { @apply btn bg-navy text-white hover:bg-navy-soft focus-visible:ring-sky-200; }
+@utility btn-ghost { @apply btn border border-white/60 text-white backdrop-blur-sm hover:bg-white hover:text-navy; }
+@utility btn-line { @apply btn border border-navy/20 text-navy hover:border-navy hover:bg-navy hover:text-white; }
+
+@utility field {
+  @apply w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-[15px] outline-none transition
+         placeholder:text-slate-400 focus:border-navy focus:ring-4 focus:ring-navy/10;
+}
+@utility label { @apply mb-1.5 block text-[13px] font-bold tracking-wide text-slate-600; }
+
+@utility eyebrow {
+  @apply inline-flex items-center gap-3 text-[12px] font-extrabold uppercase tracking-[0.22em] text-gold;
+}
+
+.reveal { animation: var(--animate-rise); }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Admin panel: quiet, dense, work-tool styling (no serif, no gradients) */
+/* ------------------------------------------------------------------ */
+.admin { @apply bg-[#f6f7f9] font-sans text-[14px] text-slate-800; }
+.admin :is(h1, h2, h3) { font-family: var(--font-sans); letter-spacing: -0.01em; }
+.admin .field { @apply rounded-md border-slate-300 px-3 py-2 text-[14px] focus:border-navy focus:ring-2 focus:ring-navy/10; }
+.admin .label { @apply mb-1 text-[12.5px] font-semibold tracking-normal text-slate-700; }
+
+@utility ad-card { @apply rounded-lg border border-slate-200 bg-white; }
+@utility ad-btn {
+  @apply inline-flex h-9 items-center justify-center gap-1.5 rounded-md px-3.5 text-[13px] font-semibold transition
+         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy/30 disabled:cursor-not-allowed disabled:opacity-50;
+}
+@utility ad-btn-primary { @apply ad-btn bg-navy text-white hover:bg-navy-soft; }
+@utility ad-btn-outline { @apply ad-btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-50; }
+@utility ad-btn-ghost { @apply ad-btn text-slate-600 hover:bg-slate-100 hover:text-slate-900; }
+@utility ad-btn-danger { @apply ad-btn border border-red-200 bg-white text-red-600 hover:bg-red-50; }
+@utility ad-icon-btn { @apply grid h-8 w-8 place-items-center rounded-md text-slate-500 transition hover:bg-slate-100 hover:text-slate-900; }
+@utility ad-th { @apply px-4 py-2.5 text-left text-[11.5px] font-semibold uppercase tracking-wide text-slate-500; }
+@utility ad-td { @apply px-4 py-3 align-middle; }
