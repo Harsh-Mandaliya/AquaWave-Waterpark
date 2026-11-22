@@ -38,7 +38,7 @@
   }
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
 body { @apply bg-white font-sans text-ink antialiased; }
 h1, h2, h3 { @apply font-display tracking-tight; }
 
