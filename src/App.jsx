@@ -1,15 +1,17 @@
-import { useSite } from './context/SiteContext'
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import { PageHero } from './components/ui'
+
+function ComingSoon() {
+  return <PageHero eyebrow="Masti Water Park" title="Pages coming soon" text="Navigation, footer and contact buttons are ready." />
+}
 
 export default function App() {
-  const { settings } = useSite()
   return (
-    <main className="grid min-h-screen place-items-center bg-navy p-6 text-center text-white">
-      <div>
-        <img src={settings.logo} alt={settings.name} className="mx-auto h-28 w-auto" />
-        <h1 className="mt-6 text-4xl">{settings.name}</h1>
-        <p className="mt-2 text-white/70">{settings.tagline}</p>
-        <p className="mt-6 text-sm text-white/60">{settings.address}</p>
-      </div>
-    </main>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="*" element={<ComingSoon />} />
+      </Route>
+    </Routes>
   )
 }
